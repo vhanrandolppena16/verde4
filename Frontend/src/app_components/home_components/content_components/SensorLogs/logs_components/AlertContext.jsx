@@ -34,6 +34,7 @@ export const AlertProvider = ({ children }) => {
           updatedActiveAlerts[param] = {
             timestamp: now.toISOString(),
             id: null, // will assign after push
+            condition: val < range.min ? "LOW" : "HIGH",  // add condition here!
           };
           newIssues.push({
             parameter: param,
