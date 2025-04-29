@@ -48,7 +48,14 @@ const Sidebar = ({ setNavigationText, collapsed, setCollapsed }) => {
   // Function which stores an item and passes the text and route to the setNav and navigate functions respectively 
   const handleItemClick = (item) => {
     setNavigationText(item.text);
-    navigate(item.route);
+    const currentRoute = window.location.pathname;
+    // If the user is clicking the same route, force refresh
+    if (currentRoute === item.route) {
+      // Reload the page
+      window.location.reload();
+    } else {
+      navigate(item.route);
+    }
   };
 
   return (
